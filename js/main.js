@@ -3,10 +3,13 @@ const inputElement = document.querySelector ('.js-input');
 const buttonElement = document.querySelector ('.js-button');
 const hintElement = document.querySelector ('.paragraph1');
 
+
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max); 
 }
+
 const randomGenerator = getRandomNumber(100);
+
 console.log (randomGenerator);
 
 // First event - input number - hints
@@ -40,7 +43,8 @@ const paragraph2Element = document.querySelector ('.paragraph2');
 let acc = 0;
 
 function counter (){
-    if (hintElement.value === '¡Bien! ¡Has ganado, campeona!'){
+    const inputValue = parseInt(inputElement.value);
+    if (inputValue === randomGenerator){
         acc += 0;
     } else {
         acc += 1;

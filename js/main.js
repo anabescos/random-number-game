@@ -3,9 +3,8 @@
 const inputElement = document.querySelector ('.js-input');
 const buttonElement = document.querySelector ('.js-button');
 const hintElement = document.querySelector ('.paragraph1');
-const randomGenerator = getRandomNumber(100);
 const paragraph2Element = document.querySelector ('.paragraph2');
-
+const randomGenerator = getRandomNumber(100);
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max); 
@@ -14,12 +13,12 @@ function getRandomNumber(max) {
 
 // First event - input number - hints
 
-function generateNumber (ev) {
-    ev.preventDefault()
+function generateNumber () {
+    
     const inputValue = parseInt(inputElement.value);
     
 
-    if (inputValue < 0 || inputValue > 100 || inputValue === '' || isNaN(inputValue)){
+    if (isNaN(inputValue) || inputValue < 0 || inputValue > 100 ){
         hintElement.innerHTML = 'Pista: Escribe un número entre 0 y 100';
         
     } else if (inputValue < randomGenerator){
@@ -34,7 +33,7 @@ function generateNumber (ev) {
     }
 } 
 
-buttonElement.addEventListener ('click', generateNumber);
+// buttonElement.addEventListener ('click', generateNumber);
 
 // Second event - counter
 
@@ -51,7 +50,11 @@ function setCounter (){
     }
    paragraph2Element.innerHTML = `Número de intentos: ${acc}`; 
 }
+function getButtonSetCounter (ev) {
+ev.preventDefault()
+    generateNumber();
+    setCounter();
+}
 
 
-
-buttonElement.addEventListener ('click', setCounter);
+buttonElement.addEventListener ('click', getButtonSetCounter);

@@ -34,7 +34,7 @@ function generateNumber (ev) {
     }
 } 
 
-// buttonElement.addEventListener ('click', generateNumber);
+buttonElement.addEventListener ('click', generateNumber);
 
 // Second event - counter
 
@@ -42,7 +42,7 @@ function generateNumber (ev) {
 
 let acc = 0;
 
-function counter (){
+function setCounter (){
     const inputValue = parseInt(inputElement.value);
     if (inputValue === randomGenerator){
         acc += 0;
@@ -52,9 +52,6 @@ function counter (){
    paragraph2Element.innerHTML = `Número de intentos: ${acc}`; 
 }
 
-function getButtonSetCounter() {
-    generateNumber();
-    counter();
-}
 
-buttonElement.addEventListener ('click', getButtonSetCounter);
+
+buttonElement.addEventListener ('click', setCounter);
